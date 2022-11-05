@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">effectiveShop</string>
+    <string name="splash_screen_app_name">Ecommerce \nConcept</string>
+
+    <!--Select Category-->
+    <string name="select_category">Select Category</string>
+    <string name="category_1">Phones</string>
+    <string name="category_2">Computer</string>
+    <string name="category_3">Health</string>
+    <string name="category_4">Books</string>
+    <string name="category_5">Other</string>
+
+    <string name="hot_sales">Hot sales</string>
+    <string name="best_seller">Best Seller</string>
+
+    <!--Filter options-->
+    <string name="filter_options">Filter options</string>
+    <string name="brand">Brand</string>
+    <string name="price">Price</string>
+    <string name="size">Size</string>
+    <string name="done">Done</string>
+    <string name="mock_size_string">4.5 to 5.5 inches</string>
+
+    <!--Bottom navigation bar-->
+    <string name="explorer">Explorer</string>
 </resources>
