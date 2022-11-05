@@ -124,10 +124,12 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/view_pager_height"
+        android:id="@+id/hot_sales_view_pager"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_border"
+        app:layout_constraintEnd_toEndOf="@+id/tv_see_more_hot"
+        app:layout_constraintStart_toStartOf="@+id/tv_hot"
         app:layout_constraintTop_toBottomOf="@+id/tv_hot" />
 
     <TextView
@@ -138,7 +140,7 @@
         android:text="@string/best_seller"
         android:layout_marginTop="@dimen/margin_border"
         app:layout_constraintStart_toStartOf="@+id/searchView"
-        app:layout_constraintTop_toBottomOf="@+id/view_pager" />
+        app:layout_constraintTop_toBottomOf="@+id/hot_sales_view_pager" />
 
     <TextView
         android:id="@+id/tv_see_more_best"
