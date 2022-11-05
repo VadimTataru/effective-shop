@@ -14,6 +14,8 @@
         <!-- Customize your theme here. -->
         <item name="android:textColorHint">@color/gray</item>
         <item name="searchViewStyle">@style/SearchView</item>
+
+        <item name="materialButtonStyle">@style/MatButton</item>
     </style>
 
     <style name="SearchView" parent="Widget.AppCompat.SearchView">
@@ -29,6 +31,12 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="WhiteTitleText">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/title</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="DarkBlueCommonText">
         <item name="android:textColor">@color/dark_blue</item>
         <item name="android:textSize">@dimen/common_text</item>
@@ -39,6 +47,15 @@
         <item name="android:textSize">@dimen/common_text</item>
     </style>
 
+    <style name="WhiteSmallText">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/small_text</item>
+    </style>
 
+    <style name="MatButton" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/white</item>
+        <item name="color">@color/white</item>
+        <item name="android:textColor">@color/dark_blue</item>
+    </style>
 
 </resources>
