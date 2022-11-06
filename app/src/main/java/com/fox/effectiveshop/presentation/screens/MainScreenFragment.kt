@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.fox.effectiveshop.R
 import com.fox.effectiveshop.databinding.FragmentMainScreenBinding
+import com.fox.effectiveshop.presentation.adapter.BestSellerRecyclerAdapter
 import com.fox.effectiveshop.presentation.adapter.CategoryRecyclerAdapter
 import com.fox.effectiveshop.presentation.adapter.HotSalesRecyclerAdapter
 import com.fox.effectiveshop.presentation.models.Category
@@ -22,6 +23,7 @@ class MainScreenFragment : Fragment() {
     private lateinit var binding: FragmentMainScreenBinding
     private var hotSalesRecyclerAdapter: HotSalesRecyclerAdapter? = null
     private var categoryRecyclerAdapter: CategoryRecyclerAdapter? = null
+    private var bestSellerRecyclerAdapter: BestSellerRecyclerAdapter? = null
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -45,8 +47,8 @@ class MainScreenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initHotSalesRecyclerView()
+        initBestSellerRecyclerView()
         initCategoryRecyclerView()
-
         setDataToAdapters()
     }
 
@@ -68,7 +70,10 @@ class MainScreenFragment : Fragment() {
     }
 
     private fun initBestSellerRecyclerView() {
-
+        bestSellerRecyclerAdapter = BestSellerRecyclerAdapter()
+        binding.rvBestSeller.apply {
+            adapter = bestSellerRecyclerAdapter
+        }
     }
 
     private fun setDataToAdapters() {
@@ -76,6 +81,12 @@ class MainScreenFragment : Fragment() {
         viewModel.getHotSales().observe(viewLifecycleOwner) {
             if(it != null)
                 hotSalesRecyclerAdapter?.setHotSaleList(it.toMutableList())
+            else
+                Toast.makeText(this@MainScreenFragment.requireContext(), "Error in data loading", Toast.LENGTH_SHORT).show()
+        }
+        viewModel.getBestSellers().observe(viewLifecycleOwner) {
+            if(it != null)
+                bestSellerRecyclerAdapter?.setBestSellerList(it.toMutableList())
             else
                 Toast.makeText(this@MainScreenFragment.requireContext(), "Error in data loading", Toast.LENGTH_SHORT).show()
         }

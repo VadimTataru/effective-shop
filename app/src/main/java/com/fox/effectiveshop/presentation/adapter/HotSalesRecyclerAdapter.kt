@@ -19,7 +19,7 @@ import com.fox.effectiveshop.databinding.HotSalesItemBinding
 class HotSalesRecyclerAdapter: RecyclerView.Adapter<HotSalesRecyclerAdapter.HotSalesHolder>() {
     private var hotSaleItems = mutableListOf<HotSaleItem>()
 
-    class HotSalesHolder(private var itemBinding: HotSalesItemBinding): RecyclerView.ViewHolder(itemBinding.root) {
+    inner class HotSalesHolder(private var itemBinding: HotSalesItemBinding): RecyclerView.ViewHolder(itemBinding.root) {
 
         fun bind(hotSaleItem: HotSaleItem) {
             hideViewsUntilGlideReady()
