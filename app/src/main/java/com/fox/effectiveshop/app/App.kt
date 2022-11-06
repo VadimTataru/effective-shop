@@ -35,6 +35,8 @@ class App: Application(), HasAndroidInjector {
     }
 
     private fun provideDomainComponent(): DomainComponent {
-        return DaggerDomainComponent.builder().build()
+        return DaggerDomainComponent.builder()
+            .dependencies(provideDataComponent())
+            .build()
     }
 }
