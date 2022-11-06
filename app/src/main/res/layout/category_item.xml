@@ -8,8 +8,8 @@
         android:id="@+id/imageButton"
         android:layout_width="72dp"
         android:layout_height="72dp"
-        android:background="@drawable/ellipse"
-        android:src="@drawable/phone"
+        android:background="#00FFFFFF"
+        android:src="@drawable/ic_phone_orange"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,6 +17,7 @@
 
     <TextView
         style="@style/OrangeText"
+        android:id="@+id/tv_category"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/category_1"

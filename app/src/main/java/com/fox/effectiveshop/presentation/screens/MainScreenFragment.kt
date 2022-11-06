@@ -7,11 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import com.fox.effectiveshop.R
 import com.fox.effectiveshop.databinding.FragmentMainScreenBinding
+import com.fox.effectiveshop.presentation.adapter.CategoryRecyclerAdapter
 import com.fox.effectiveshop.presentation.adapter.HotSalesRecyclerAdapter
+import com.fox.effectiveshop.presentation.models.Category
 
 class MainScreenFragment : Fragment() {
     private lateinit var binding: FragmentMainScreenBinding
     private var hotSalesRecyclerAdapter: HotSalesRecyclerAdapter? = null
+    private var categoryRecyclerAdapter: CategoryRecyclerAdapter? = null
+
+
     private val images: IntArray = intArrayOf(
         R.drawable.ellipse,
         R.drawable.mock_best_seller,
@@ -34,6 +39,47 @@ class MainScreenFragment : Fragment() {
         binding.hotSalesViewPager.apply {
             adapter = hotSalesRecyclerAdapter
         }
+        initCategoryRecyclerView()
+    }
 
+    private fun initCategoryRecyclerView() {
+        categoryRecyclerAdapter = CategoryRecyclerAdapter()
+        categoryRecyclerAdapter?.setCategories(mockCategories())
+        binding.rvCategories.adapter = categoryRecyclerAdapter
+    }
+
+    private fun mockCategories(): MutableList<Category> {
+        return mutableListOf(
+            Category(
+                "Phone",
+                R.drawable.ic_phone_white,
+                R.drawable.ic_phone_orange,
+                true
+            ),
+            Category(
+                "Computer",
+                R.drawable.ic_computer_white,
+                R.drawable.ic_computer_orange,
+                false
+            ),
+            Category(
+                "Health",
+                R.drawable.ic_health_white,
+                R.drawable.ic_health_orange,
+                false
+            ),
+            Category(
+                "Books",
+                R.drawable.ic_books_white,
+                R.drawable.ic_books_orange,
+                false
+            ),
+            Category(
+                "Other",
+                R.drawable.white_ellipse,
+                R.drawable.ellipse,
+                false
+            )
+        )
     }
 }

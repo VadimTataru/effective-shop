@@ -126,7 +126,7 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/hot_sales_view_pager"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/view_pager_height"
         android:layout_marginTop="@dimen/margin_border"
         app:layout_constraintEnd_toEndOf="@+id/tv_see_more_hot"
         app:layout_constraintStart_toStartOf="@+id/tv_hot"
