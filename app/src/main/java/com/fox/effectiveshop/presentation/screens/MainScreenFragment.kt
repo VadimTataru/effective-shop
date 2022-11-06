@@ -10,6 +10,7 @@ import com.fox.effectiveshop.databinding.FragmentMainScreenBinding
 import com.fox.effectiveshop.presentation.adapter.CategoryRecyclerAdapter
 import com.fox.effectiveshop.presentation.adapter.HotSalesRecyclerAdapter
 import com.fox.effectiveshop.presentation.models.Category
+import com.fox.effectiveshop.presentation.utils.SpacingItemDecorator
 
 class MainScreenFragment : Fragment() {
     private lateinit var binding: FragmentMainScreenBinding
@@ -45,7 +46,11 @@ class MainScreenFragment : Fragment() {
     private fun initCategoryRecyclerView() {
         categoryRecyclerAdapter = CategoryRecyclerAdapter()
         categoryRecyclerAdapter?.setCategories(mockCategories())
-        binding.rvCategories.adapter = categoryRecyclerAdapter
+        val itemDecoration = SpacingItemDecorator(60)
+        binding.rvCategories.apply {
+            addItemDecoration(itemDecoration)
+            adapter = categoryRecyclerAdapter
+        }
     }
 
     private fun mockCategories(): MutableList<Category> {
@@ -72,6 +77,18 @@ class MainScreenFragment : Fragment() {
                 "Books",
                 R.drawable.ic_books_white,
                 R.drawable.ic_books_orange,
+                false
+            ),
+            Category(
+                "Other",
+                R.drawable.white_ellipse,
+                R.drawable.ellipse,
+                false
+            ),
+            Category(
+                "Other",
+                R.drawable.white_ellipse,
+                R.drawable.ellipse,
                 false
             ),
             Category(
