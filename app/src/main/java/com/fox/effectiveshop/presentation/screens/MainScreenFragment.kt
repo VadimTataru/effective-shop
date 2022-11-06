@@ -85,18 +85,6 @@ class MainScreenFragment : Fragment() {
                 R.drawable.ellipse,
                 false
             ),
-            Category(
-                "Other",
-                R.drawable.white_ellipse,
-                R.drawable.ellipse,
-                false
-            ),
-            Category(
-                "Other",
-                R.drawable.white_ellipse,
-                R.drawable.ellipse,
-                false
-            )
         )
     }
 }
