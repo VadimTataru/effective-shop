@@ -1,4 +1,4 @@
-package com.fox.domian
+package com.fox.domain
 
 import org.junit.Test
 

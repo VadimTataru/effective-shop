@@ -14,5 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "effectiveShop"
 include ':app'
-include ':domian'
+include ':domain'
 include ':data'
