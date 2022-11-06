@@ -16,6 +16,9 @@ class MainScreenViewModel @Inject constructor(
     private var hotSales: MutableLiveData<List<HotSaleItem>> = MutableLiveData()
     private var bestSellers: MutableLiveData<List<BestSellerItem>> = MutableLiveData()
 
+    fun getHotSales(): MutableLiveData<List<HotSaleItem>> = hotSales
+    fun getBestSellers(): MutableLiveData<List<BestSellerItem>> = bestSellers
+
     fun getPhonesData() {
         viewModelScope.launch {
             val phoneListItems = mainScreenInteractor.getHotSaleItems()
