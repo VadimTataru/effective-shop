@@ -1,5 +1,6 @@
 package com.fox.data.models
 
+import com.fox.domain.models.BestSellerItem
 import com.google.gson.annotations.SerializedName
 
 data class BestSellerRemoteModel(
@@ -9,4 +10,15 @@ data class BestSellerRemoteModel(
     @SerializedName("price_without_discount") val priceWithDiscount: Int,
     @SerializedName("discount_price") val priceWithoutDiscount: Int,
     @SerializedName("picture") val pictureUri: String
-)
+) {
+    fun convertToDomain(): BestSellerItem {
+        return BestSellerItem(
+            id,
+            isFavorites,
+            title,
+            priceWithDiscount,
+            priceWithoutDiscount,
+            pictureUri
+        )
+    }
+}

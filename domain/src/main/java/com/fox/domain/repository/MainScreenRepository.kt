@@ -1,7 +1,7 @@
 package com.fox.domain.repository
 
-import com.fox.domain.models.HotSaleItem
+import com.fox.domain.models.PhoneListItem
 
 interface MainScreenRepository {
-    suspend fun getHotSaleItems(): List<HotSaleItem>
+    suspend fun getHotSaleItems(): PhoneListItem
 }

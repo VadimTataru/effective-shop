@@ -1,5 +1,6 @@
 package com.fox.data.models
 
+import com.fox.domain.models.HotSaleItem
 import com.google.gson.annotations.SerializedName
 
 data class HotSalesRemoteModel(
@@ -9,4 +10,15 @@ data class HotSalesRemoteModel(
     @SerializedName("subtitle") val subtitle: String,
     @SerializedName("picture") val pictureUri: String,
     @SerializedName("is_buy") val isBuy: Boolean
-)
+) {
+    fun convertToDomain(): HotSaleItem {
+        return HotSaleItem(
+            id,
+            isNew,
+            title,
+            subtitle,
+            pictureUri,
+            isBuy
+        )
+    }
+}

@@ -55,6 +55,11 @@ class MainScreenFragment : Fragment() {
             adapter = hotSalesRecyclerAdapter
         }
         initCategoryRecyclerView()
+        viewModel.getPhonesData()
+    }
+
+    private fun initHotSalesRecyclerView() {
+
     }
 
     private fun initCategoryRecyclerView() {
@@ -65,6 +70,10 @@ class MainScreenFragment : Fragment() {
             addItemDecoration(itemDecoration)
             adapter = categoryRecyclerAdapter
         }
+    }
+
+    private fun initBestSellerRecyclerView() {
+
     }
 
     private fun mockCategories(): MutableList<Category> {
