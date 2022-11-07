@@ -29,6 +29,9 @@
 
     <!--Bottom navigation bar-->
     <string name="explorer">Explorer</string>
+    <string name="my_cart">My Cart</string>
+    <string name="fav">Favourites</string>
+    <string name="profile">Profile</string>
 
     <!--Test strings-->
     <string name="mock_size_string">4.5 to 5.5 inches</string>
