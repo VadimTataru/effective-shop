@@ -48,7 +48,8 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/bottom_nav_view"
+        android:layout_marginBottom="72dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar">
@@ -189,45 +190,15 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <com.google.android.material.tabs.TabLayout
+    <FrameLayout
+        android:id="@+id/bottom_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bottom_nav_bar_bg"
-        app:tabIndicatorHeight="0dp"
-        app:tabInlineLabel="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/white_ellipse"
-            android:text="@string/fav"/>
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/white_ellipse"
-            android:text="@string/fav"/>
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/ic_outlined_heart_white"
-            android:text="@string/fav"/>
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/white_ellipse"
-            android:text="@string/fav"/>
-    </com.google.android.material.tabs.TabLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav_view"
-        android:layout_width="match_parent"
-        android:layout_height="72dp"
-        app:guidelineUseRtl="true"
-        android:background="@drawable/bottom_nav_bar_bg"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
+        <include layout="@layout/bottom_nav_view"/>
+
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
