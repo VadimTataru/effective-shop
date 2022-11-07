@@ -41,4 +41,5 @@
 
     <!--Details screen-->
     <string name="details">Product Details</string>
+    <string name="select_color_and_capacity">Select style and capacity</string>
 </resources>
