@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.fox.effectiveshop.R
 import com.fox.effectiveshop.databinding.FragmentMainScreenBinding
 import com.fox.effectiveshop.presentation.adapter.BestSellerRecyclerAdapter
 import com.fox.effectiveshop.presentation.adapter.CategoryRecyclerAdapter
 import com.fox.effectiveshop.presentation.adapter.HotSalesRecyclerAdapter
 import com.fox.effectiveshop.presentation.models.Category
+import com.fox.effectiveshop.presentation.utils.SpacingBestSellerDecorator
 import com.fox.effectiveshop.presentation.utils.SpacingItemDecorator
 import com.fox.effectiveshop.presentation.viewmodels.MainScreenViewModel
 import dagger.android.support.AndroidSupportInjection
@@ -52,6 +54,12 @@ class MainScreenFragment : Fragment() {
         setDataToAdapters()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        Glide.get(requireContext()).clearDiskCache()
+        Glide.get(requireContext()).clearMemory()
+    }
+
     private fun initHotSalesRecyclerView() {
         hotSalesRecyclerAdapter = HotSalesRecyclerAdapter()
         binding.hotSalesViewPager.apply {
@@ -71,7 +79,9 @@ class MainScreenFragment : Fragment() {
 
     private fun initBestSellerRecyclerView() {
         bestSellerRecyclerAdapter = BestSellerRecyclerAdapter()
+        val itemDecorator = SpacingBestSellerDecorator(20)
         binding.rvBestSeller.apply {
+            addItemDecoration(itemDecorator)
             adapter = bestSellerRecyclerAdapter
         }
     }

@@ -15,6 +15,7 @@ class BestSellerRecyclerAdapter: RecyclerView.Adapter<BestSellerRecyclerAdapter.
 
     inner class BestSellerViewHolder(private var itemBinding: BestSellerItemBinding): RecyclerView.ViewHolder(itemBinding.root) {
 
+        @SuppressLint("SetTextI18n")
         fun bind(bestSellerItem: BestSellerItem) {
             itemBinding.apply {
                 Glide.with(imPhone)
@@ -23,8 +24,8 @@ class BestSellerRecyclerAdapter: RecyclerView.Adapter<BestSellerRecyclerAdapter.
                     .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
                     .into(imPhone)
 
-                priceWithDiscount.text = bestSellerItem.priceWithDiscount.toString()
-                priceWithoutDiscount.text = "$ ${bestSellerItem.priceWithoutDiscount}"
+                priceWithDiscount.text = "$" + bestSellerItem.priceWithDiscount.toString()
+                priceWithoutDiscount.text = bestSellerItem.priceWithoutDiscount.toString()
                 title.text = bestSellerItem.title
             }
         }
