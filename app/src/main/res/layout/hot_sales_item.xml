@@ -9,7 +9,6 @@
         android:id="@+id/image_placeholder"
         android:layout_width="match_parent"
         android:layout_height="156dp"
-        android:src="@drawable/mock_best_seller"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
