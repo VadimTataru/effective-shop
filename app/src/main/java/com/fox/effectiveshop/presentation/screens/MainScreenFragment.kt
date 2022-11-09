@@ -23,7 +23,6 @@ import com.fox.effectiveshop.presentation.viewmodels.MainScreenViewModel
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
-
 class MainScreenFragment : Fragment() {
     private lateinit var binding: FragmentMainScreenBinding
     private var hotSalesRecyclerAdapter: HotSalesRecyclerAdapter? = null

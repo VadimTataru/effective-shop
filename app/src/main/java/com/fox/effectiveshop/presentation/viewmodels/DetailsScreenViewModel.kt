@@ -16,6 +16,7 @@ class DetailsScreenViewModel @Inject constructor(
     private var images: MutableLiveData<List<String>> = MutableLiveData()
 
     fun getImages(): MutableLiveData<List<String>> = images
+    fun getDetailsInfo(): MutableLiveData<ProductDetailsItem> = details
 
     fun getProductDetails() {
         viewModelScope.launch {
