@@ -14,15 +14,22 @@ class DetailsScreenViewModel @Inject constructor(
 
     private var details: MutableLiveData<ProductDetailsItem> = MutableLiveData()
     private var images: MutableLiveData<List<String>> = MutableLiveData()
+    private var isFavorite: MutableLiveData<Boolean> = MutableLiveData()
 
     fun getImages(): MutableLiveData<List<String>> = images
     fun getDetailsInfo(): MutableLiveData<ProductDetailsItem> = details
+    fun getFavoriteState(): MutableLiveData<Boolean> = isFavorite
+
+    fun fakeFavouriteEvent() {
+        isFavorite.value = !isFavorite.value!!
+    }
 
     fun getProductDetails() {
         viewModelScope.launch {
             val result = interactor.getProductDetails()
             details.value = result
             images.value = result.images
+            isFavorite.value = result.isFavorites
         }
     }
 }
