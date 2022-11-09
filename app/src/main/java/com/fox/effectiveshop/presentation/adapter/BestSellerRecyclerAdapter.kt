@@ -9,8 +9,11 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.fox.domain.models.BestSellerItem
 import com.fox.domain.models.HotSaleItem
 import com.fox.effectiveshop.databinding.BestSellerItemBinding
+import com.fox.effectiveshop.presentation.delegates.BestSellerDelegate
 
-class BestSellerRecyclerAdapter: RecyclerView.Adapter<BestSellerRecyclerAdapter.BestSellerViewHolder>() {
+class BestSellerRecyclerAdapter(
+    private val bestSellersDelegate: BestSellerDelegate
+): RecyclerView.Adapter<BestSellerRecyclerAdapter.BestSellerViewHolder>() {
     private var bestSellerItems = mutableListOf<BestSellerItem>()
 
     inner class BestSellerViewHolder(private var itemBinding: BestSellerItemBinding): RecyclerView.ViewHolder(itemBinding.root) {
@@ -27,6 +30,10 @@ class BestSellerRecyclerAdapter: RecyclerView.Adapter<BestSellerRecyclerAdapter.
                 priceWithDiscount.text = "$" + bestSellerItem.priceWithDiscount.toString()
                 priceWithoutDiscount.text = bestSellerItem.priceWithoutDiscount.toString()
                 title.text = bestSellerItem.title
+            }
+
+            this.itemView.setOnClickListener {
+                bestSellersDelegate.OnBestSellerViewClick()
             }
         }
     }

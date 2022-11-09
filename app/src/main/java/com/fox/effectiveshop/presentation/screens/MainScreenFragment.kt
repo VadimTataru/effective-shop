@@ -7,12 +7,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.fox.effectiveshop.R
 import com.fox.effectiveshop.databinding.FragmentMainScreenBinding
 import com.fox.effectiveshop.presentation.adapter.BestSellerRecyclerAdapter
 import com.fox.effectiveshop.presentation.adapter.CategoryRecyclerAdapter
 import com.fox.effectiveshop.presentation.adapter.HotSalesRecyclerAdapter
+import com.fox.effectiveshop.presentation.delegates.BestSellerDelegate
 import com.fox.effectiveshop.presentation.models.Category
 import com.fox.effectiveshop.presentation.utils.SpacingBestSellerDecorator
 import com.fox.effectiveshop.presentation.utils.SpacingItemDecorator
@@ -49,7 +52,7 @@ class MainScreenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initHotSalesRecyclerView()
-        initBestSellerRecyclerView()
+        initBestSellerRecyclerView(view)
         initCategoryRecyclerView()
         setDataToAdapters()
     }
@@ -77,8 +80,14 @@ class MainScreenFragment : Fragment() {
         }
     }
 
-    private fun initBestSellerRecyclerView() {
-        bestSellerRecyclerAdapter = BestSellerRecyclerAdapter()
+    private fun initBestSellerRecyclerView(view: View) {
+        bestSellerRecyclerAdapter = BestSellerRecyclerAdapter(object : BestSellerDelegate {
+            override fun OnBestSellerViewClick() {
+                val action = MainScreenFragmentDirections.actionMainScreenFragmentToDetailsFragment()
+                Navigation.findNavController(view).navigate(action)
+            }
+
+        })
         val itemDecorator = SpacingBestSellerDecorator(20)
         binding.rvBestSeller.apply {
             addItemDecoration(itemDecorator)

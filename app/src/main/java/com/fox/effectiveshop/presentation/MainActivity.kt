@@ -13,13 +13,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        supportFragmentManager.beginTransaction()
-            .replace(
-                R.id.fragment_container_view_tag,
-                MainScreenFragment(),
-                "Tag"
-            )
-            .commit()
     }
 }
