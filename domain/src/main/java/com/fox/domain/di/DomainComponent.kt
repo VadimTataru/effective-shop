@@ -1,5 +1,6 @@
 package com.fox.domain.di
 
+import com.fox.domain.repository.DetailsScreenRepository
 import com.fox.domain.repository.MainScreenRepository
 import dagger.Component
 
@@ -10,6 +11,7 @@ import dagger.Component
 interface DomainComponent {
 
     fun getMainScreenRepository(): MainScreenRepository
+    fun getDetailsScreenRepository(): DetailsScreenRepository
 
     @Component.Builder
     interface Builder {

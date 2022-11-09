@@ -29,7 +29,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintEnd_toStartOf="@+id/textView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <ImageButton
         android:layout_width="40dp"
@@ -39,11 +40,12 @@
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPager2"
-        android:layout_width="match_parent"
+        android:id="@+id/images_spinner"
+        android:layout_width="0dp"
         android:layout_height="250dp"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,7 +59,7 @@
         android:background="@drawable/panel_bg"
         android:padding="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewPager2">
+        app:layout_constraintTop_toBottomOf="@+id/images_spinner">
 
         <ImageButton
             android:id="@+id/im_btn_fav"
@@ -66,7 +68,8 @@
             android:background="@drawable/dark_blue_btn_bg"
             android:src="@drawable/ic_outlined_heart_white"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
         <TextView
             android:id="@+id/textView2"
             style="@style/TitleText"
