@@ -6,25 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.fox.effectiveshop.R
-import com.fox.effectiveshop.databinding.FragmentDetailsShopBinding
+import com.fox.effectiveshop.databinding.FragmentFeaturesBinding
 
-class DetailsShopFragment : Fragment() {
+class FeaturesFragment : Fragment() {
 
-    private lateinit var binding: FragmentDetailsShopBinding
+    private lateinit var binding: FragmentFeaturesBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentDetailsShopBinding.inflate(inflater)
+        binding = FragmentFeaturesBinding.inflate(inflater)
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initViews()
-    }
-
-    private fun initViews() {
-
     }
 }

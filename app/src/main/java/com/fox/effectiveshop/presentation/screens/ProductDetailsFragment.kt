@@ -6,13 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.fox.effectiveshop.R
 import com.fox.effectiveshop.databinding.FragmentProductDetailsBinding
 import com.fox.effectiveshop.presentation.adapter.ProductDetailsImagesRecyclerAdapter
+import com.fox.effectiveshop.presentation.adapter.detailsfragments.DetailsViewPagerAdapter
+import com.fox.effectiveshop.presentation.adapter.detailsfragments.DetailsViewPagerAdapter.Companion.DETAILS_FRAGMENT
+import com.fox.effectiveshop.presentation.adapter.detailsfragments.DetailsViewPagerAdapter.Companion.DETAILS_SHOP_FRAGMENT
+import com.fox.effectiveshop.presentation.adapter.detailsfragments.DetailsViewPagerAdapter.Companion.FEATURES_FRAGMENT
 import com.fox.effectiveshop.presentation.viewmodels.DetailsScreenViewModel
+import com.google.android.material.tabs.TabLayoutMediator
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
@@ -24,6 +28,7 @@ class ProductDetailsFragment : Fragment() {
     private lateinit var viewModel: DetailsScreenViewModel
 
     private lateinit var productDetailsImagesRecyclerAdapter: ProductDetailsImagesRecyclerAdapter
+    private lateinit var detailsViewPagerAdapter: DetailsViewPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,15 +47,25 @@ class ProductDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initRecyclerView()
+        initAdapters()
         setImagesToRecyclerView()
         initViews()
     }
 
-    private fun initRecyclerView() {
+    private fun initAdapters() {
         productDetailsImagesRecyclerAdapter = ProductDetailsImagesRecyclerAdapter()
-        binding.imagesSpinner.apply {
-            adapter = productDetailsImagesRecyclerAdapter
+        detailsViewPagerAdapter = DetailsViewPagerAdapter(childFragmentManager, lifecycle)
+        binding.apply {
+            imagesSpinner.adapter = productDetailsImagesRecyclerAdapter
+            productDetailsView.detailsViewPager.adapter = detailsViewPagerAdapter
+
+            TabLayoutMediator(productDetailsView.tabLayout, productDetailsView.detailsViewPager){ tab, position ->
+                when (position) {
+                    DETAILS_SHOP_FRAGMENT -> tab.text = getString(R.string.pager_shop)
+                    DETAILS_FRAGMENT -> tab.text = getString(R.string.pager_details)
+                    FEATURES_FRAGMENT -> tab.text = getString(R.string.pager_features)
+                }
+            }.attach()
         }
     }
 
@@ -69,7 +84,7 @@ class ProductDetailsFragment : Fragment() {
                 binding.productDetailsView.apply {
                     tvTitle.text = it.title
                     appCompatRatingBar.rating = it.rating
-                    tvCore.text = it.cpu
+                    /*tvCore.text = it.cpu
                     tvCamera.text = it.camera
                     tvSsd.text = it.ssd
                     tvSd.text = it.sd
@@ -78,7 +93,7 @@ class ProductDetailsFragment : Fragment() {
                     }
 
                     capacityFirst.text = "${it.capacity[0]} GB"
-                    capacitySecond.text = "${it.capacity[1]} GB"
+                    capacitySecond.text = "${it.capacity[1]} GB"*/
                 }
             }
         }
