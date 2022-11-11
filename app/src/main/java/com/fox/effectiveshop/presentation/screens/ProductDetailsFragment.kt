@@ -1,26 +1,23 @@
 package com.fox.effectiveshop.presentation.screens
 
 import android.annotation.SuppressLint
-import android.content.res.ColorStateList
-import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.fox.effectiveshop.R
-import com.fox.effectiveshop.databinding.FragmentDetailsBinding
+import com.fox.effectiveshop.databinding.FragmentProductDetailsBinding
 import com.fox.effectiveshop.presentation.adapter.ProductDetailsImagesRecyclerAdapter
 import com.fox.effectiveshop.presentation.viewmodels.DetailsScreenViewModel
-import com.google.android.material.chip.Chip
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
-class DetailsFragment : Fragment() {
-    private lateinit var binding: FragmentDetailsBinding
+class ProductDetailsFragment : Fragment() {
+    private lateinit var binding: FragmentProductDetailsBinding
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -39,7 +36,7 @@ class DetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentDetailsBinding.inflate(inflater)
+        binding = FragmentProductDetailsBinding.inflate(inflater)
         return binding.root
     }
 
@@ -95,6 +92,10 @@ class DetailsFragment : Fragment() {
                     }
                 }
             }
+        }
+
+        binding.btnBack.setOnClickListener {
+            findNavController().navigateUp()
         }
     }
 }

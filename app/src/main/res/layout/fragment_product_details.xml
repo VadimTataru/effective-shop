@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/steam_white"
-    tools:context=".presentation.screens.DetailsFragment">
+    tools:context=".presentation.screens.ProductDetailsFragment">
 
     <TextView
         android:id="@+id/textView"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/btn_back"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="@drawable/dark_blue_btn_bg"
@@ -33,6 +33,7 @@
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <ImageButton
+        android:id="@+id/btn_cart"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="@drawable/orange_btn_bg"

@@ -12,11 +12,11 @@
         tools:layout="@layout/fragment_main_screen" >
         <action
             android:id="@+id/action_mainScreenFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+            app:destination="@id/productDetailsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/detailsFragment"
-        android:name="com.fox.effectiveshop.presentation.screens.DetailsFragment"
+        android:id="@+id/productDetailsFragment"
+        android:name="com.fox.effectiveshop.presentation.screens.ProductDetailsFragment"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_product_details" />
 </navigation>

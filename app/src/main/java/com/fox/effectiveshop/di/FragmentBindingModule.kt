@@ -1,6 +1,6 @@
 package com.fox.effectiveshop.di
 
-import com.fox.effectiveshop.presentation.screens.DetailsFragment
+import com.fox.effectiveshop.presentation.screens.ProductDetailsFragment
 import com.fox.effectiveshop.presentation.screens.MainScreenFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -11,5 +11,5 @@ abstract class FragmentBindingModule {
     abstract fun bindMainScreenFragment(): MainScreenFragment
 
     @ContributesAndroidInjector
-    abstract fun bindDetailsScreenFragment(): DetailsFragment
+    abstract fun bindDetailsScreenFragment(): ProductDetailsFragment
 }
