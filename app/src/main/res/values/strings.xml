@@ -45,6 +45,8 @@
     <string name="pager_shop">Shop</string>
     <string name="pager_details">Details</string>
     <string name="pager_features">Features</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
