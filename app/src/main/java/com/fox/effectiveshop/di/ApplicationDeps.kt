@@ -1,5 +1,6 @@
 package com.fox.effectiveshop.di
 
+import com.fox.feature_details_screen.di.DetailsScreenDeps
 import com.fox.feature_main_screen.di.MainScreenDeps
 
-interface ApplicationDeps: MainScreenDeps
+interface ApplicationDeps: MainScreenDeps, DetailsScreenDeps
