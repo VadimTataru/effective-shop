@@ -4,11 +4,10 @@ import com.fox.data.repository.DetailsScreenRepositoryImpl
 import com.fox.data.repository.MainScreenRepositoryImpl
 import com.fox.data.source.remote.PhoneListService
 import com.fox.domain.di.DomainDependencies
-import com.fox.domain.repository.DetailsScreenRepository
 import dagger.Component
 
 @Component(
-    modules = [NetworkModule::class]
+    modules = [com.fox.effectiveshop.di.NetworkModule::class]
 )
 interface DataComponent: DomainDependencies {
     override fun mainScreenRepository(): MainScreenRepositoryImpl

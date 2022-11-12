@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainScreenFragment"
-        android:name="com.fox.effectiveshop.presentation.screens.MainScreenFragment"
+        android:name="com.fox.feature_main_screen.presentation.fragments.MainScreenFragment"
         android:label="fragment_main_screen"
         tools:layout="@layout/fragment_main_screen" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/productDetailsFragment"
-        android:name="com.fox.effectiveshop.presentation.screens.ProductDetailsFragment"
+        android:name="com.fox.feature_details_screen.presentation.fragments.ProductDetailsFragment"
         android:label="fragment_details"
         tools:layout="@layout/fragment_product_details" />
 </navigation>

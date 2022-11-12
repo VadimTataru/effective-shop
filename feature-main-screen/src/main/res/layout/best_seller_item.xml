@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="@dimen/margin_border"
+    android:background="@drawable/best_seller_bg"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/im_phone"
+        android:layout_width="168dp"
+        android:layout_height="187dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_favourite"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="@dimen/margin_border"
+        android:src="@drawable/ic_outlined"
+        android:background="@drawable/white_ellipse"
+        android:elevation="6dp"
+        app:layout_constraintEnd_toEndOf="@+id/im_phone"
+        app:layout_constraintTop_toTopOf="@+id/im_phone" />
+
+    <TextView
+        android:id="@+id/price_with_discount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$ 1,047"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/dark_blue"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/im_phone"
+        app:layout_constraintTop_toBottomOf="@+id/im_phone" />
+
+    <TextView
+        android:id="@+id/price_without_discount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="$1,500"
+        android:textColor="@color/gray"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@id/price_with_discount"
+        app:layout_constraintStart_toEndOf="@+id/price_with_discount" />
+
+    <TextView
+        style="@style/BlueSmallText"
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_border"
+        android:text="@string/hot_description"
+        app:layout_constraintStart_toStartOf="@+id/price_with_discount"
+        app:layout_constraintTop_toBottomOf="@+id/price_with_discount" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
