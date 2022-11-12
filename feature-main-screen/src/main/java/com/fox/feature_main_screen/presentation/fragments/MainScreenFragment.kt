@@ -1,6 +1,7 @@
 package com.fox.feature_main_screen.presentation.fragments
 
 import android.content.Context
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.fox.core_ui.navigation.DeepLinks.PRODUCT_DETAILS_SCREEN
 import com.fox.core_ui.utils.SpacingBestSellerDecorator
 import com.fox.core_ui.utils.SpacingItemDecorator
 import com.fox.feature_main_screen.R
@@ -85,7 +87,7 @@ class MainScreenFragment : Fragment() {
     private fun initBestSellerRecyclerView(view: View) {
         bestSellerRecyclerAdapter = BestSellerRecyclerAdapter(object : BestSellerDelegate {
             override fun onBestSellerViewClick() {
-                //navigate
+                findNavController().navigate(Uri.parse(getString(PRODUCT_DETAILS_SCREEN)))
             }
 
         })

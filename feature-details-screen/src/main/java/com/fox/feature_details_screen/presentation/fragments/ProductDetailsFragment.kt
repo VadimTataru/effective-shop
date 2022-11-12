@@ -108,9 +108,9 @@ class ProductDetailsFragment : Fragment() {
                 }
             }
         }
-
+        */
         binding.btnBack.setOnClickListener {
             findNavController().navigateUp()
-        }*/
+        }
     }
 }
