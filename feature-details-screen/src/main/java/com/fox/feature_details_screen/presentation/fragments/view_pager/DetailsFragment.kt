@@ -1,4 +1,4 @@
-package com.fox.feature_details_screen.presentation.adapter
+package com.fox.feature_details_screen.presentation.fragments.view_pager
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

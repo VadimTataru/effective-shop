@@ -17,6 +17,16 @@
         <item name="materialButtonStyle">@style/MatButton</item>
     </style>
 
+    <style name="Theme.EffectiveShop.Splash" parent="Theme.SplashScreen">
+        <item name="android:statusBarColor">@color/dark_blue</item>
+        <item name="windowSplashScreenBackground">@color/dark_blue</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_screen_logo</item>
+        <item name="windowSplashScreenIconBackgroundColor">@color/white</item>
+        <item name="windowSplashScreenAnimationDuration">3000</item>
+
+        <item name="postSplashScreenTheme">@style/Theme.EffectiveShop</item>
+    </style>
+
     <style name="MatButton" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">@color/white</item>
         <item name="color">@color/white</item>

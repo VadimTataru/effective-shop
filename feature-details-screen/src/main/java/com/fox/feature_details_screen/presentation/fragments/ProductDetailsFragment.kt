@@ -97,6 +97,7 @@ class ProductDetailsFragment : Fragment() {
                 }
             }
         }
+                */
 
         viewModel.getFavoriteState().observe(viewLifecycleOwner) {
             if(it != null) {
@@ -108,7 +109,6 @@ class ProductDetailsFragment : Fragment() {
                 }
             }
         }
-        */
         binding.btnBack.setOnClickListener {
             findNavController().navigateUp()
         }

@@ -4,6 +4,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.fox.feature_details_screen.presentation.fragments.view_pager.DetailsFragment
+import com.fox.feature_details_screen.presentation.fragments.view_pager.DetailsShopFragment
+import com.fox.feature_details_screen.presentation.fragments.view_pager.FeaturesFragment
 
 class DetailsViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fragmentManager, lifecycle) {
