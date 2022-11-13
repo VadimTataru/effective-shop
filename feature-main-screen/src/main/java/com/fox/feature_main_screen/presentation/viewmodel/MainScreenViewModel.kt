@@ -20,10 +20,6 @@ class MainScreenViewModel @Inject constructor(
     fun getHotSales(): MutableLiveData<List<HotSaleItem>> = hotSales
     fun getBestSellers(): MutableLiveData<List<BestSellerItem>> = bestSellers
 
-    init {
-        Log.d("TAG", "vm")
-    }
-
     fun getPhonesData() {
         viewModelScope.launch {
             val phoneListItems = mainScreenInteractor.getHotSaleItems()

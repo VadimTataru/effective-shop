@@ -2,6 +2,7 @@ package com.fox.feature_details_screen.presentation.fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -79,25 +80,14 @@ class ProductDetailsFragment : Fragment() {
 
     @SuppressLint("InflateParams")
     private fun initViews() {
-        /*viewModel.getDetailsInfo().observe(viewLifecycleOwner) {
+            viewModel.getDetailsInfo().observe(viewLifecycleOwner) {
             if(it != null) {
                 binding.productDetailsView.apply {
                     tvTitle.text = it.title
                     appCompatRatingBar.rating = it.rating
-                    *//*tvCore.text = it.cpu
-                    tvCamera.text = it.camera
-                    tvSsd.text = it.ssd
-                    tvSd.text = it.sd
-                    btnBuy.setOnClickListener {
-                        Toast.makeText(context, "text", Toast.LENGTH_SHORT).show()
-                    }
-
-                    capacityFirst.text = "${it.capacity[0]} GB"
-                    capacitySecond.text = "${it.capacity[1]} GB"*//*
                 }
             }
         }
-                */
 
         viewModel.getFavoriteState().observe(viewLifecycleOwner) {
             if(it != null) {

@@ -13,4 +13,8 @@ data class ProductDetailsItem(
     val sd: String,
     val ssd: String,
     val title: String
-)
+) {
+    fun mapToViewPagerShopItem(): ViewPagerShopItem {
+        return ViewPagerShopItem(cpu, camera, capacity, color, sd, ssd)
+    }
+}
