@@ -13,8 +13,11 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.fox.feature_main_screen.databinding.HotSalesItemBinding
 import com.fox.feature_main_screen.domain.models.HotSaleItem
+import com.fox.feature_main_screen.presentation.delegates.OnProductClickDelegate
 
-class HotSalesRecyclerAdapter: RecyclerView.Adapter<HotSalesRecyclerAdapter.HotSalesHolder>() {
+class HotSalesRecyclerAdapter(
+    private val hotSalesDelegate: OnProductClickDelegate
+): RecyclerView.Adapter<HotSalesRecyclerAdapter.HotSalesHolder>() {
     private var hotSaleItems = mutableListOf<HotSaleItem>()
 
     inner class HotSalesHolder(private var itemBinding: HotSalesItemBinding): RecyclerView.ViewHolder(itemBinding.root) {
@@ -59,6 +62,10 @@ class HotSalesRecyclerAdapter: RecyclerView.Adapter<HotSalesRecyclerAdapter.HotS
                 isNew.visibility = if(hotSaleItem.isNew) View.VISIBLE else View.INVISIBLE
                 tvTitle.text = hotSaleItem.title
                 tvSubtitle.text = hotSaleItem.subtitle
+            }
+
+            this.itemView.setOnClickListener {
+                hotSalesDelegate.onProductViewClick()
             }
         }
 

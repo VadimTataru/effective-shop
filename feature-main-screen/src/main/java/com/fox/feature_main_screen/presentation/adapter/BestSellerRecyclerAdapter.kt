@@ -7,12 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.fox.core_ui.R
-import com.fox.feature_main_screen.presentation.delegates.BestSellerDelegate
+import com.fox.feature_main_screen.presentation.delegates.OnProductClickDelegate
 import com.fox.feature_main_screen.databinding.BestSellerItemBinding
 import com.fox.feature_main_screen.domain.models.BestSellerItem
 
 class BestSellerRecyclerAdapter(
-    private val bestSellersDelegate: BestSellerDelegate
+    private val bestSellersDelegate: OnProductClickDelegate
 ): RecyclerView.Adapter<BestSellerRecyclerAdapter.BestSellerViewHolder>() {
     private var bestSellerItems = mutableListOf<BestSellerItem>()
 
@@ -40,7 +40,7 @@ class BestSellerRecyclerAdapter(
             }
 
             this.itemView.setOnClickListener {
-                bestSellersDelegate.onBestSellerViewClick()
+                bestSellersDelegate.onProductViewClick()
             }
         }
     }

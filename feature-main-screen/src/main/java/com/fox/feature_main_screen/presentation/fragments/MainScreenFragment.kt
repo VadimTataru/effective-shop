@@ -1,6 +1,5 @@
 package com.fox.feature_main_screen.presentation.fragments
 
-import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.fox.core_ui.navigation.DeepLinks.PRODUCT_DETAILS_SCREEN
@@ -17,12 +15,10 @@ import com.fox.core_ui.utils.SpacingBestSellerDecorator
 import com.fox.core_ui.utils.SpacingItemDecorator
 import com.fox.feature_main_screen.R
 import com.fox.feature_main_screen.databinding.FragmentMainScreenBinding
-import com.fox.feature_main_screen.di.DaggerMainScreenComponent
-import com.fox.feature_main_screen.di.MainScreenDeps
 import com.fox.feature_main_screen.presentation.adapter.BestSellerRecyclerAdapter
 import com.fox.feature_main_screen.presentation.adapter.CategoryRecyclerAdapter
 import com.fox.feature_main_screen.presentation.adapter.HotSalesRecyclerAdapter
-import com.fox.feature_main_screen.presentation.delegates.BestSellerDelegate
+import com.fox.feature_main_screen.presentation.delegates.OnProductClickDelegate
 import com.fox.feature_main_screen.domain.models.Category
 import com.fox.feature_main_screen.presentation.viewmodel.MainScreenViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -57,7 +53,7 @@ class MainScreenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initHotSalesRecyclerView()
-        initBestSellerRecyclerView(view)
+        initBestSellerRecyclerView()
         initCategoryRecyclerView()
         initBottomSheetController()
         setDataToAdapters()
@@ -70,7 +66,11 @@ class MainScreenFragment : Fragment() {
     }
 
     private fun initHotSalesRecyclerView() {
-        hotSalesRecyclerAdapter = HotSalesRecyclerAdapter()
+        hotSalesRecyclerAdapter = HotSalesRecyclerAdapter(object : OnProductClickDelegate {
+            override fun onProductViewClick() {
+                findNavController().navigate(Uri.parse(getString(PRODUCT_DETAILS_SCREEN)))
+            }
+        })
         binding.hotSalesViewPager.apply {
             adapter = hotSalesRecyclerAdapter
         }
@@ -86,9 +86,9 @@ class MainScreenFragment : Fragment() {
         }
     }
 
-    private fun initBestSellerRecyclerView(view: View) {
-        bestSellerRecyclerAdapter = BestSellerRecyclerAdapter(object : BestSellerDelegate {
-            override fun onBestSellerViewClick() {
+    private fun initBestSellerRecyclerView() {
+        bestSellerRecyclerAdapter = BestSellerRecyclerAdapter(object : OnProductClickDelegate {
+            override fun onProductViewClick() {
                 findNavController().navigate(Uri.parse(getString(PRODUCT_DETAILS_SCREEN)))
             }
 
