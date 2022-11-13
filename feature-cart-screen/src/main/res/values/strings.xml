@@ -1,4 +1,9 @@
 <resources>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cart_screen_title">My Cart</string>
+    <string name="add_address">Add address</string>
+    <string name="checkout">Checkout</string>
+    <string name="total">Total</string>
+    <string name="delivery">Delivery</string>
+    <string name="free">Free</string>
+    <string name="test_total">$6,000 us</string>
 </resources>

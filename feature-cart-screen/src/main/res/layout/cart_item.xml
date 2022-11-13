@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/dark_blue"
+    android:padding="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/img_product"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:src="@drawable/panel_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/WhiteTitle20Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:maxLines="2"
+        android:maxWidth="170dp"
+        android:text="Galaxy Note 20 Ultra"
+        app:layout_constraintStart_toEndOf="@+id/img_product"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/OrangeTitle20Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="6dp"
+        android:maxWidth="170dp"
+        android:maxLines="2"
+        android:text="@string/test_total"
+        app:layout_constraintStart_toStartOf="@+id/tv_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btn_view"
+        android:layout_width="wrap_content"
+        android:layout_height="68dp"
+        android:background="@drawable/best_seller_bg"
+        android:backgroundTint="@color/night_blue"
+        android:orientation="vertical"
+        android:paddingHorizontal="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_trash"
+        app:layout_constraintEnd_toStartOf="@+id/btn_trash"
+        app:layout_constraintTop_toTopOf="@+id/btn_trash">
+
+        <ImageButton
+            android:id="@+id/btn_minus"
+            android:layout_width="match_parent"
+            android:layout_height="14dp"
+            android:layout_marginTop="6dp"
+            android:background="transparent"
+            android:scaleType="center"
+            android:src="@drawable/ic_minus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/WhiteTitle20Text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="1"
+            app:layout_constraintBottom_toTopOf="@+id/btn_plus"
+            app:layout_constraintEnd_toEndOf="@+id/btn_plus"
+            app:layout_constraintStart_toStartOf="@+id/btn_plus"
+            app:layout_constraintTop_toBottomOf="@+id/btn_minus" />
+
+        <ImageButton
+            android:id="@+id/btn_plus"
+            android:layout_width="match_parent"
+            android:layout_height="14dp"
+            android:layout_marginBottom="6dp"
+            android:background="transparent"
+            android:scaleType="center"
+            android:src="@drawable/ic_plus"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageButton
+        android:id="@+id/btn_trash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="transparent"
+        android:src="@drawable/ic_trash"
+        android:layout_marginEnd="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
