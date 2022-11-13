@@ -36,13 +36,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             style="@style/TextAppearance.MaterialComponents.Button"
+            android:backgroundTint="@color/orange"
             android:id="@+id/btn_done"
             android:layout_width="wrap_content"
-            android:layout_height="36dp"
-            android:backgroundTint="@color/orange"
-            android:background="@drawable/orange_btn_bg"
+            android:layout_height="46dp"
             android:text="@string/done"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/filer_title"
