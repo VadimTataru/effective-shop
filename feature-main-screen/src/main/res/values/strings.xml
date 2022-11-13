@@ -22,6 +22,20 @@
     <string name="price">Price</string>
     <string name="size">Size</string>
     <string name="done">Done</string>
+    <string-array name="filter_brand">
+        <item>Samsung</item>
+        <item>Xiaomi</item>
+        <item>Motorola</item>
+    </string-array>
+    <string-array name="filter_price">
+        <item>$0 - $300</item>
+        <item>$300 - $500</item>
+        <item>$500 - $800</item>
+        <item>$800 - $1000</item>
+    </string-array>
+    <string-array name="filter_size">
+        <item>4.5 to 5.5 inches</item>
+    </string-array>
 
     <!--Test strings-->
     <string name="mock_size_string">4.5 to 5.5 inches</string>

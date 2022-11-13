@@ -25,6 +25,7 @@ import com.fox.feature_main_screen.presentation.adapter.HotSalesRecyclerAdapter
 import com.fox.feature_main_screen.presentation.delegates.BestSellerDelegate
 import com.fox.feature_main_screen.domain.models.Category
 import com.fox.feature_main_screen.presentation.viewmodel.MainScreenViewModel
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
@@ -58,6 +59,7 @@ class MainScreenFragment : Fragment() {
         initHotSalesRecyclerView()
         initBestSellerRecyclerView(view)
         initCategoryRecyclerView()
+        initBottomSheetController()
         setDataToAdapters()
     }
 
@@ -147,5 +149,24 @@ class MainScreenFragment : Fragment() {
                 false
             ),
         )
+    }
+
+    private fun initBottomSheetController() {
+        binding.apply {
+            val bottomSheetBehavior = BottomSheetBehavior.from(bottomSheetContainer)
+            filter.setOnClickListener {
+                if (bottomSheetBehavior.state == BottomSheetBehavior.STATE_EXPANDED) {
+                    bottomSheetContainer.visibility = View.INVISIBLE
+                    bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+                } else {
+                    bottomSheetContainer.visibility = View.VISIBLE
+                    bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+                }
+            }
+            filterBottomSheet.btnClose.setOnClickListener {
+                bottomSheetContainer.visibility = View.INVISIBLE
+                bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+            }
+        }
     }
 }

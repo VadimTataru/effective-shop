@@ -14,7 +14,6 @@
         <!-- Customize your theme here. -->
         <item name="android:textColorHint">@color/dark_blue_opacity</item>
         <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView.Colored</item>
-        <item name="materialButtonStyle">@style/MatButton</item>
     </style>
 
     <style name="Theme.EffectiveShop.Splash" parent="Theme.SplashScreen">
@@ -25,11 +24,5 @@
         <item name="windowSplashScreenAnimationDuration">3000</item>
 
         <item name="postSplashScreenTheme">@style/Theme.EffectiveShop</item>
-    </style>
-
-    <style name="MatButton" parent="Widget.MaterialComponents.Button">
-        <item name="backgroundTint">@color/white</item>
-        <item name="color">@color/white</item>
-        <item name="android:textColor">@color/dark_blue</item>
     </style>
 </resources>

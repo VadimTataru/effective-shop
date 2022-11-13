@@ -60,6 +60,9 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
     <Button
+        style="@style/TextAppearance.MaterialComponents.Button"
+        android:textColor="@color/dark_blue"
+        android:backgroundTint="@color/white"
         android:id="@+id/btn_buy"
         android:layout_width="112dp"
         android:layout_height="42dp"
