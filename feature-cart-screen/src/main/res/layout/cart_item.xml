@@ -28,7 +28,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_price"
         style="@style/OrangeTitle20Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -66,6 +66,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/tv_count"
             style="@style/WhiteTitle20Text"
             android:layout_width="match_parent"
             android:layout_height="0dp"

@@ -11,8 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.fox.core_ui.navigation.DeepLinks.PRODUCT_DETAILS_SCREEN
-import com.fox.core_ui.utils.SpacingBestSellerDecorator
 import com.fox.core_ui.utils.SpacingItemDecorator
+import com.fox.core_ui.utils.SpacingType
 import com.fox.feature_main_screen.R
 import com.fox.feature_main_screen.databinding.FragmentMainScreenBinding
 import com.fox.feature_main_screen.presentation.adapter.BestSellerRecyclerAdapter
@@ -79,7 +79,7 @@ class MainScreenFragment : Fragment() {
     private fun initCategoryRecyclerView() {
         categoryRecyclerAdapter = CategoryRecyclerAdapter()
         categoryRecyclerAdapter?.setCategories(mockCategories())
-        val itemDecoration = SpacingItemDecorator(60)
+        val itemDecoration = SpacingItemDecorator(60, SpacingType.Left)
         binding.rvCategories.apply {
             addItemDecoration(itemDecoration)
             adapter = categoryRecyclerAdapter
@@ -93,7 +93,7 @@ class MainScreenFragment : Fragment() {
             }
 
         })
-        val itemDecorator = SpacingBestSellerDecorator(20)
+        val itemDecorator = SpacingItemDecorator(60, SpacingType.All)
         binding.rvBestSeller.apply {
             addItemDecoration(itemDecorator)
             adapter = bestSellerRecyclerAdapter

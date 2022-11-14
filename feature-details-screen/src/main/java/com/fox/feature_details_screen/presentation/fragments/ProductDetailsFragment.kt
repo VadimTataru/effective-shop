@@ -48,6 +48,7 @@ class ProductDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.getProductDetails()
         initAdapters()
         setImagesToRecyclerView()
         initViews()
@@ -71,7 +72,6 @@ class ProductDetailsFragment : Fragment() {
     }
 
     private fun setImagesToRecyclerView() {
-        viewModel.getProductDetails()
         viewModel.getImages().observe(viewLifecycleOwner) {
             if(it != null)
                 productDetailsImagesRecyclerAdapter.setImages(it.toMutableList())
