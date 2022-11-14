@@ -27,10 +27,12 @@ class CartScreenViewModel @Inject constructor(
         }
     }
 
-    fun deleteProduct(id: Int) {
-        for(item in basketItems.value!!) {
+    fun getCount(id: Int): Int {
+        var count = 0;
+        for (item in basketItems.value!!)
             if (item.id == id)
-                basketItems.value!!.remove(item)
-        }
+                count++
+
+        return count
     }
 }

@@ -27,6 +27,7 @@
                 style="@style/DarkBlueCommonText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/mark_pro_regular"
                 android:text="@string/mock_location"
                 android:textSize="@dimen/common_text"
                 android:layout_gravity="center"
@@ -70,6 +71,7 @@
                     <TextView
                         android:id="@+id/tv_category"
                         style="@style/TitleText"
+                        android:fontFamily="@font/mark_pro_heavy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_border"
@@ -82,6 +84,7 @@
                         style="@style/OrangeText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/mark_pro_regular"
                         android:layout_marginEnd="@dimen/margin_border"
                         android:text="@string/view_all"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_category"
@@ -128,6 +131,7 @@
                     <TextView
                         android:id="@+id/tv_hot"
                         style="@style/TitleText"
+                        android:fontFamily="@font/mark_pro_heavy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_border"
@@ -138,6 +142,7 @@
                     <TextView
                         android:id="@+id/tv_see_more_hot"
                         style="@style/OrangeText"
+                        android:fontFamily="@font/mark_pro_regular"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/margin_border"
@@ -159,6 +164,7 @@
                         style="@style/TitleText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/mark_pro_heavy"
                         android:layout_marginTop="@dimen/margin_border"
                         android:text="@string/best_seller"
                         app:layout_constraintStart_toStartOf="@+id/searchView"
@@ -167,6 +173,7 @@
                     <TextView
                         android:id="@+id/tv_see_more_best"
                         style="@style/OrangeText"
+                        android:fontFamily="@font/mark_pro_regular"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/margin_border"

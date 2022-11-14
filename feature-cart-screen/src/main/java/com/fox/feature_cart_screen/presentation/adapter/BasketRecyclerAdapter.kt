@@ -15,7 +15,6 @@ class BasketRecyclerAdapter(
     private var basketItems = mutableListOf<BasketItem>()
 
     inner class BasketViewHolder(private val binding: CartItemBinding): RecyclerView.ViewHolder(binding.root) {
-        private var count: Int = 1;
 
         fun bind(basketItem: BasketItem) {
             binding.apply {
@@ -25,20 +24,7 @@ class BasketRecyclerAdapter(
                     .into(imgProduct)
                 tvTitle.text = basketItem.title
                 tvPrice.text = "$" + basketItem.price.toString()
-
-                btnMinus.setOnClickListener {
-                    if(count < 0)
-                        count -= 1
-                    delegate.onClickMinus()
-                }
-                btnPlus.setOnClickListener {
-                    count += 1
-                    delegate.onClickPlus()
-                }
-                btnTrash.setOnClickListener {
-                    delegate.onClickTrash(basketItem.id)
-                }
-                tvCount.text = count.toString()
+                tvCount.text = getCount(basketItem.id)
             }
         }
     }
@@ -62,6 +48,7 @@ class BasketRecyclerAdapter(
         notifyDataSetChanged()
     }
 
-    fun addBasketItem(id: Int) {
+    private fun getCount(id: Int): String {
+        return delegate.getCount(id).toString()
     }
 }

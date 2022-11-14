@@ -39,6 +39,7 @@
     <TextView
         android:id="@+id/tv_title"
         style="@style/WhiteTitleText"
+        android:fontFamily="@font/mark_pro_bold"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:maxLines="2"
@@ -51,6 +52,7 @@
     <TextView
         android:id="@+id/tv_subtitle"
         style="@style/WhiteSmallText"
+        android:fontFamily="@font/mark_pro_regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|start"
@@ -69,6 +71,7 @@
         android:layout_gravity="bottom"
         android:text="@string/buy_now"
         android:textSize="12sp"
+        android:fontFamily="@font/mark_pro_bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/tv_subtitle"
         app:layout_constraintTop_toBottomOf="@+id/tv_subtitle" />

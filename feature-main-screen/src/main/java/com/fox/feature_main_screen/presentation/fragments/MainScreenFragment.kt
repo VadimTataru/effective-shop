@@ -52,6 +52,7 @@ class MainScreenFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initBottomNavigationBar()
         initHotSalesRecyclerView()
         initBestSellerRecyclerView()
         initCategoryRecyclerView()
@@ -63,6 +64,10 @@ class MainScreenFragment : Fragment() {
         super.onDestroy()
         Glide.get(requireContext()).clearDiskCache()
         Glide.get(requireContext()).clearMemory()
+    }
+
+    private fun initBottomNavigationBar() {
+
     }
 
     private fun initHotSalesRecyclerView() {
@@ -164,6 +169,10 @@ class MainScreenFragment : Fragment() {
                 }
             }
             filterBottomSheet.btnClose.setOnClickListener {
+                bottomSheetContainer.visibility = View.INVISIBLE
+                bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+            }
+            filterBottomSheet.btnDone.setOnClickListener {
                 bottomSheetContainer.visibility = View.INVISIBLE
                 bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
             }

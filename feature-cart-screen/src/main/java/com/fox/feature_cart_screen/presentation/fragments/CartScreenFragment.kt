@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.fox.core_ui.utils.SpacingItemDecorator
 import com.fox.core_ui.utils.SpacingType
 import com.fox.feature_cart_screen.R
@@ -51,22 +52,21 @@ class CartScreenFragment : Fragment() {
             binding.apply {
                 tvDelivery.text = it.delivery
                 tvTotal.text = it.total.toString()
+                btnBack.setOnClickListener {
+                    findNavController().navigateUp()
+                }
             }
+        }
+
+        viewModel.getBasketItems().observe(viewLifecycleOwner) {
+            basketRecyclerAdapter!!.setBasketItemList(it)
         }
     }
 
     private fun initAdapters() {
         basketRecyclerAdapter = BasketRecyclerAdapter(object: BasketItemDelegate{
-            override fun onClickMinus() {
-                TODO("Not yet implemented")
-            }
-
-            override fun onClickPlus() {
-                TODO("Not yet implemented")
-            }
-
-            override fun onClickTrash(id: Int) {
-                viewModel.deleteProduct(id)
+            override fun getCount(id: Int): Int {
+                return viewModel.getCount(id)
             }
 
         })
