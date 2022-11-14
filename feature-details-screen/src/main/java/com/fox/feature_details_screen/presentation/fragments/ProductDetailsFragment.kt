@@ -1,6 +1,7 @@
 package com.fox.feature_details_screen.presentation.fragments
 
 import android.annotation.SuppressLint
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.fox.core_ui.navigation.DeepLinks
 import com.fox.feature_details_screen.R
 import com.fox.feature_details_screen.presentation.adapter.ProductDetailsImagesRecyclerAdapter
 import com.fox.feature_details_screen.presentation.adapter.DetailsViewPagerAdapter
@@ -101,6 +103,9 @@ class ProductDetailsFragment : Fragment() {
         }
         binding.btnBack.setOnClickListener {
             findNavController().navigateUp()
+        }
+        binding.btnCart.setOnClickListener {
+            findNavController().navigate(Uri.parse(getString(DeepLinks.CART_SCREEN)))
         }
     }
 }

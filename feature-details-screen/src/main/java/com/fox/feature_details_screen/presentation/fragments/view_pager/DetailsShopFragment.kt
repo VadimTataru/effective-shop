@@ -1,5 +1,6 @@
 package com.fox.feature_details_screen.presentation.fragments.view_pager
 
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.fox.core_ui.navigation.DeepLinks
 import com.fox.feature_details_screen.databinding.FragmentDetailsShopBinding
 import com.fox.feature_details_screen.presentation.viewmodel.DetailsScreenViewModel
 
@@ -41,7 +44,7 @@ class DetailsShopFragment : Fragment() {
                     tvSsd.text = it.ssd
                     tvSd.text = it.sd
                     btnBuy.setOnClickListener {
-                        Toast.makeText(context, "text", Toast.LENGTH_SHORT).show()
+                        findNavController().navigate(Uri.parse(getString(DeepLinks.CART_SCREEN)))
                     }
 
                     capacityFirst.text = "${it.capacity[0]} GB"

@@ -93,7 +93,7 @@ class MainScreenFragment : Fragment() {
             }
 
         })
-        val itemDecorator = SpacingItemDecorator(60, SpacingType.All)
+        val itemDecorator = SpacingItemDecorator(20, SpacingType.All)
         binding.rvBestSeller.apply {
             addItemDecoration(itemDecorator)
             adapter = bestSellerRecyclerAdapter
