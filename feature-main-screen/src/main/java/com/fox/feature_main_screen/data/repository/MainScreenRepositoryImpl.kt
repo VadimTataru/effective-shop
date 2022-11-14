@@ -18,4 +18,12 @@ class MainScreenRepositoryImpl @Inject constructor(
         }
         return result!!
     }
+
+    override suspend fun getCartItemsCount(): Int {
+        val response = service.getCartItemCount()
+        var result = 0;
+        if(response.isSuccessful)
+            result = response.body()!!.basket.size
+        return result
+    }
 }

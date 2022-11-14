@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:visibility="invisible"
         android:id="@+id/count_bg"
         android:layout_width="20dp"
         android:layout_height="20dp"
@@ -27,12 +28,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/tv_count"
         style="@style/WhiteSmallText"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:textSize="8sp"
+        android:layout_width="20dp"
+        android:layout_height="18dp"
         android:fontFamily="@font/mark_pro_bold"
-        android:text="99+"
         android:gravity="center"
         app:layout_constraintTop_toTopOf="@+id/count_bg"
         app:layout_constraintEnd_toEndOf="@+id/count_bg"

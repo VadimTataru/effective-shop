@@ -68,6 +68,22 @@ class MainScreenFragment : Fragment() {
     }
 
     private fun initBottomNavigationBar() {
+        viewModel.getCartItemsCount()
+        viewModel.observeCartItemCount().observe(viewLifecycleOwner) {
+            binding.bottomNavigationBar.shopIcon.apply {
+                if(it > 0) {
+                    countBg.visibility = View.VISIBLE
+                    tvCount.visibility = View.VISIBLE
+                    if(it > 99)
+                        tvCount.text = getString(R.string.cart_items_overflow)
+                    else
+                        tvCount.text = it.toString()
+                } else {
+                    countBg.visibility = View.INVISIBLE
+                    tvCount.visibility = View.INVISIBLE
+                }
+            }
+        }
         binding.bottomNavigationBar.shopIcon.imCart.setOnClickListener {
             findNavController().navigate(Uri.parse(getString(CART_SCREEN)))
         }
@@ -110,13 +126,13 @@ class MainScreenFragment : Fragment() {
 
     private fun setDataToAdapters() {
         viewModel.getPhonesData()
-        viewModel.getHotSales().observe(viewLifecycleOwner) {
+        viewModel.observeHotSales().observe(viewLifecycleOwner) {
             if(it != null)
                 hotSalesRecyclerAdapter?.setHotSaleList(it.toMutableList())
             else
                 Toast.makeText(this@MainScreenFragment.requireContext(), "Error in data loading", Toast.LENGTH_SHORT).show()
         }
-        viewModel.getBestSellers().observe(viewLifecycleOwner) {
+        viewModel.observeBestSellers().observe(viewLifecycleOwner) {
             if(it != null)
                 bestSellerRecyclerAdapter?.setBestSellerList(it.toMutableList())
             else

@@ -48,4 +48,6 @@
     <string name="my_cart">My Cart</string>
     <string name="fav">Favourites</string>
     <string name="profile">Profile</string>
+
+    <string name="cart_items_overflow">99+</string>
 </resources>

@@ -11,4 +11,8 @@ class MainScreenInteractor @Inject constructor(
     suspend fun getHotSaleItems(): PhoneListItem {
         return mainScreenRepository.getHotSaleItems()
     }
+
+    suspend fun getCartItemsCount(): Int {
+        return mainScreenRepository.getCartItemsCount()
+    }
 }

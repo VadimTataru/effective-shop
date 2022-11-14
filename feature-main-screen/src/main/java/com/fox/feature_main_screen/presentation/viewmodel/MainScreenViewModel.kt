@@ -17,14 +17,24 @@ class MainScreenViewModel @Inject constructor(
     private var hotSales: MutableLiveData<List<HotSaleItem>> = MutableLiveData()
     private var bestSellers: MutableLiveData<List<BestSellerItem>> = MutableLiveData()
 
-    fun getHotSales(): MutableLiveData<List<HotSaleItem>> = hotSales
-    fun getBestSellers(): MutableLiveData<List<BestSellerItem>> = bestSellers
+    private var cartItemCount: MutableLiveData<Int> = MutableLiveData()
+
+    fun observeHotSales(): MutableLiveData<List<HotSaleItem>> = hotSales
+    fun observeBestSellers(): MutableLiveData<List<BestSellerItem>> = bestSellers
+    fun observeCartItemCount(): MutableLiveData<Int> = cartItemCount
 
     fun getPhonesData() {
         viewModelScope.launch {
             val phoneListItems = mainScreenInteractor.getHotSaleItems()
             hotSales.value = phoneListItems.hotSales
             bestSellers.value = phoneListItems.bestSellers
+        }
+    }
+
+    fun getCartItemsCount() {
+        viewModelScope.launch {
+            val count = mainScreenInteractor.getCartItemsCount()
+            cartItemCount.value = count
         }
     }
 }
