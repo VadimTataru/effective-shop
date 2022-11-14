@@ -11,10 +11,11 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.fox.core_ui.navigation.DeepLinks
+import com.fox.core_ui.presentation.BaseFragment
 import com.fox.feature_details_screen.databinding.FragmentDetailsShopBinding
 import com.fox.feature_details_screen.presentation.viewmodel.DetailsScreenViewModel
 
-class DetailsShopFragment : Fragment() {
+class DetailsShopFragment : BaseFragment() {
 
     private lateinit var binding: FragmentDetailsShopBinding
     private lateinit var sharedViewModel: DetailsScreenViewModel
@@ -44,7 +45,7 @@ class DetailsShopFragment : Fragment() {
                     tvSsd.text = it.ssd
                     tvSd.text = it.sd
                     btnBuy.setOnClickListener {
-                        findNavController().navigate(Uri.parse(getString(DeepLinks.CART_SCREEN)))
+                        navigateTo(getString(DeepLinks.CART_SCREEN))
                     }
 
                     capacityFirst.text = "${it.capacity[0]} GB"

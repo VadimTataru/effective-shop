@@ -1,17 +1,15 @@
 package com.fox.feature_main_screen.presentation.fragments
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.fox.core_ui.navigation.DeepLinks.CART_SCREEN
 import com.fox.core_ui.navigation.DeepLinks.PRODUCT_DETAILS_SCREEN
+import com.fox.core_ui.presentation.BaseFragment
 import com.fox.core_ui.utils.SpacingItemDecorator
 import com.fox.core_ui.utils.SpacingType
 import com.fox.feature_main_screen.R
@@ -26,7 +24,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
-class MainScreenFragment : Fragment() {
+class MainScreenFragment : BaseFragment() {
     private lateinit var binding: FragmentMainScreenBinding
     private var hotSalesRecyclerAdapter: HotSalesRecyclerAdapter? = null
     private var categoryRecyclerAdapter: CategoryRecyclerAdapter? = null
@@ -85,14 +83,14 @@ class MainScreenFragment : Fragment() {
             }
         }
         binding.bottomNavigationBar.shopIcon.imCart.setOnClickListener {
-            findNavController().navigate(Uri.parse(getString(CART_SCREEN)))
+            navigateTo(getString(CART_SCREEN))
         }
     }
 
     private fun initHotSalesRecyclerView() {
         hotSalesRecyclerAdapter = HotSalesRecyclerAdapter(object : OnProductClickDelegate {
             override fun onProductViewClick() {
-                findNavController().navigate(Uri.parse(getString(PRODUCT_DETAILS_SCREEN)))
+                navigateTo(getString(PRODUCT_DETAILS_SCREEN))
             }
         })
         binding.hotSalesViewPager.apply {
@@ -113,7 +111,7 @@ class MainScreenFragment : Fragment() {
     private fun initBestSellerRecyclerView() {
         bestSellerRecyclerAdapter = BestSellerRecyclerAdapter(object : OnProductClickDelegate {
             override fun onProductViewClick() {
-                findNavController().navigate(Uri.parse(getString(PRODUCT_DETAILS_SCREEN)))
+                navigateTo(getString(PRODUCT_DETAILS_SCREEN))
             }
 
         })

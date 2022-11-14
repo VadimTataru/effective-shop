@@ -9,8 +9,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import com.fox.core_ui.navigation.DeepLinks
+import com.fox.core_ui.navigation.NavOptions
+import com.fox.core_ui.presentation.BaseFragment
 import com.fox.feature_details_screen.R
 import com.fox.feature_details_screen.presentation.adapter.ProductDetailsImagesRecyclerAdapter
 import com.fox.feature_details_screen.presentation.adapter.DetailsViewPagerAdapter
@@ -23,7 +27,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
-class ProductDetailsFragment : Fragment() {
+class ProductDetailsFragment : BaseFragment() {
     private lateinit var binding: FragmentProductDetailsBinding
 
     @Inject
@@ -105,7 +109,7 @@ class ProductDetailsFragment : Fragment() {
             findNavController().navigateUp()
         }
         binding.btnCart.setOnClickListener {
-            findNavController().navigate(Uri.parse(getString(DeepLinks.CART_SCREEN)))
+            navigateTo(getString(DeepLinks.CART_SCREEN))
         }
     }
 }
