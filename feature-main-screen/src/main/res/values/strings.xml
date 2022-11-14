@@ -44,7 +44,7 @@
     <string name="hot_description">Super. Mega. Rapido.</string>
 
     <!--Bottom navigation bar-->
-    <string name="explorer">Explorer</string>
+    <string name="explorer">• Explorer</string>
     <string name="my_cart">My Cart</string>
     <string name="fav">Favourites</string>
     <string name="profile">Profile</string>

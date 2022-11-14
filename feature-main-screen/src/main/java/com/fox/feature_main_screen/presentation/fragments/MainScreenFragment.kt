@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.fox.core_ui.navigation.DeepLinks.CART_SCREEN
 import com.fox.core_ui.navigation.DeepLinks.PRODUCT_DETAILS_SCREEN
 import com.fox.core_ui.utils.SpacingItemDecorator
 import com.fox.core_ui.utils.SpacingType
@@ -67,7 +68,9 @@ class MainScreenFragment : Fragment() {
     }
 
     private fun initBottomNavigationBar() {
-
+        binding.bottomNavigationBar.shopIcon.setOnClickListener {
+            findNavController().navigate(Uri.parse(getString(CART_SCREEN)))
+        }
     }
 
     private fun initHotSalesRecyclerView() {
