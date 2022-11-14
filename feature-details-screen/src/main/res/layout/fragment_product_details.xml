@@ -15,6 +15,7 @@
         android:layout_marginTop="32dp"
         android:gravity="center"
         android:text="@string/details"
+        android:fontFamily="@font/mark_pro_heavy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
