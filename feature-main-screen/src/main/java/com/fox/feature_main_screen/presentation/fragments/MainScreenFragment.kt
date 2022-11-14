@@ -68,7 +68,7 @@ class MainScreenFragment : Fragment() {
     }
 
     private fun initBottomNavigationBar() {
-        binding.bottomNavigationBar.shopIcon.setOnClickListener {
+        binding.bottomNavigationBar.shopIcon.imCart.setOnClickListener {
             findNavController().navigate(Uri.parse(getString(CART_SCREEN)))
         }
     }

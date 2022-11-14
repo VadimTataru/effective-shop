@@ -20,16 +20,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/shop_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <include android:id="@+id/shop_icon"
+        layout="@layout/cart_icon"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/favorites_icon"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/explorer"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_cart" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/profile_icon"
