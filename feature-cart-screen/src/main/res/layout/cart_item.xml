@@ -18,6 +18,7 @@
     <TextView
         android:id="@+id/tv_title"
         style="@style/WhiteTitle20Text"
+        android:fontFamily="@font/mark_pro_bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -32,7 +33,7 @@
         style="@style/OrangeTitle20Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:fontFamily="@font/mark_pro_bold"
         android:layout_marginTop="6dp"
         android:maxWidth="170dp"
         android:maxLines="2"
@@ -72,6 +73,7 @@
             android:layout_height="0dp"
             android:gravity="center"
             android:text="1"
+            android:fontFamily="@font/mark_pro_regular"
             app:layout_constraintBottom_toTopOf="@+id/btn_plus"
             app:layout_constraintEnd_toEndOf="@+id/btn_plus"
             app:layout_constraintStart_toStartOf="@+id/btn_plus"
