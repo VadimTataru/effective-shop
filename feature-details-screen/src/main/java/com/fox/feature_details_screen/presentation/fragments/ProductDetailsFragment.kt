@@ -87,7 +87,7 @@ class ProductDetailsFragment : BaseFragment() {
     }
 
     private fun setImagesToRecyclerView() {
-        viewModel.getImages().observe(viewLifecycleOwner) {
+        viewModel.observeImages().observe(viewLifecycleOwner) {
             if(it != null)
                 productDetailsImagesRecyclerAdapter.setImages(it.toMutableList())
         }
@@ -95,7 +95,7 @@ class ProductDetailsFragment : BaseFragment() {
 
     @SuppressLint("InflateParams")
     private fun initViews() {
-            viewModel.getDetailsInfo().observe(viewLifecycleOwner) {
+            viewModel.observeDetailsInfo().observe(viewLifecycleOwner) {
             if(it != null) {
                 binding.productDetailsView.apply {
                     tvTitle.text = it.title
@@ -104,7 +104,7 @@ class ProductDetailsFragment : BaseFragment() {
             }
         }
 
-        viewModel.getFavoriteState().observe(viewLifecycleOwner) {
+        viewModel.observeFavoriteState().observe(viewLifecycleOwner) {
             if(it != null) {
                 binding.productDetailsView.apply {
                     imBtnFav.setImageResource(if(it) R.drawable.ic_filled_heart_white else R.drawable.ic_outlined_heart_white)

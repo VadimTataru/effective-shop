@@ -19,12 +19,12 @@ class CategoryRecyclerAdapter: RecyclerView.Adapter<CategoryRecyclerAdapter.Cate
                 if(category.isSelected) {
                     imageButton.setImageResource(category.selectedCategoryIcon)
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        tvCategory.setTextAppearance(R.style.OrangeText)
+                        tvCategory.setTextAppearance(R.style.OrangeSmallText)
                     }
                 } else {
                     imageButton.setImageResource(category.categoryIcon)
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        tvCategory.setTextAppearance(R.style.DarkBlueCommonText)
+                        tvCategory.setTextAppearance(R.style.BlueSmallText)
                     }
                 }
                 imageButton.setOnClickListener {

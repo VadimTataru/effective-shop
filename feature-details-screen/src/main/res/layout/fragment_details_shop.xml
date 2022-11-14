@@ -106,28 +106,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_core" />
 
-    <ImageButton
+    <include
         android:id="@+id/color_first"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        layout="@layout/circle_color_picker_item"
         android:layout_marginTop="20dp"
-        android:background="@drawable/white_ellipse"
-        android:backgroundTint="@color/orange"
-        android:checked="true"
-        android:src="@drawable/ic_round_check_24"
-        app:chipCornerRadius="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_select" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_select"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
 
-    <ImageButton
+
+    <include
         android:id="@+id/color_second"
+        layout="@layout/circle_color_picker_item"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:background="@drawable/white_ellipse"
-        android:backgroundTint="@color/orange"
-        android:checked="true"
-        app:chipCornerRadius="10dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/color_first"
         app:layout_constraintStart_toEndOf="@+id/color_first"
         app:layout_constraintTop_toTopOf="@+id/color_first" />
 
@@ -189,5 +184,4 @@
             android:text="$1,500.00" />
 
     </androidx.cardview.widget.CardView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

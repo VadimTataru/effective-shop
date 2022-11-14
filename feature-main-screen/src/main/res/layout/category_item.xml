@@ -18,14 +18,14 @@
         tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
 
     <TextView
-        style="@style/OrangeText"
+        style="@style/OrangeSmallText"
         android:id="@+id/tv_category"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/category_2"
         android:textSize="11sp"
         android:gravity="center"
-        android:fontFamily="@font/mark_pro_regular"
+        android:fontFamily="@font/mark_pro_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton" />

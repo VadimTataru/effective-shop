@@ -1,5 +1,6 @@
 package com.fox.feature_details_screen.presentation.viewmodel
 
+import android.graphics.Color
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,10 +20,13 @@ class DetailsScreenViewModel @Inject constructor(
     private var images: MutableLiveData<List<String>> = MutableLiveData()
     private var isFavorite: MutableLiveData<Boolean> = MutableLiveData()
 
-    fun getImages(): MutableLiveData<List<String>> = images
-    fun getDetailsInfo(): MutableLiveData<ProductDetailsItem> = details
-    fun getViewPagerShopInfo(): MutableLiveData<ViewPagerShopItem> = viewPagerShopItem
-    fun getFavoriteState(): MutableLiveData<Boolean> = isFavorite
+    private var pickedColor: MutableLiveData<Int> = MutableLiveData()
+
+    fun observeImages(): MutableLiveData<List<String>> = images
+    fun observeDetailsInfo(): MutableLiveData<ProductDetailsItem> = details
+    fun observeViewPagerShopInfo(): MutableLiveData<ViewPagerShopItem> = viewPagerShopItem
+    fun observeFavoriteState(): MutableLiveData<Boolean> = isFavorite
+    fun observePickedColor(): MutableLiveData<Int> = pickedColor
 
     fun fakeFavouriteEvent() {
         isFavorite.value = !isFavorite.value!!
@@ -35,6 +39,11 @@ class DetailsScreenViewModel @Inject constructor(
             images.value = result.images
             isFavorite.value = result.isFavorites
             viewPagerShopItem.value = result.mapToViewPagerShopItem()
+            pickedColor.value = Color.parseColor(result.color[0])
         }
+    }
+
+    fun pickColor(colorInt: Int) {
+        pickedColor.value = colorInt
     }
 }
