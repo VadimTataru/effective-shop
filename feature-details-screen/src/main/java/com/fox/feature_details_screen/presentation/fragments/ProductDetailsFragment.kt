@@ -12,9 +12,16 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.CompositePageTransformer
+import androidx.viewpager2.widget.MarginPageTransformer
+import androidx.viewpager2.widget.ViewPager2
 import com.fox.core_ui.navigation.DeepLinks
 import com.fox.core_ui.navigation.NavOptions
 import com.fox.core_ui.presentation.BaseFragment
+import com.fox.core_ui.utils.SpacingItemDecorator
+import com.fox.core_ui.utils.SpacingType
 import com.fox.feature_details_screen.R
 import com.fox.feature_details_screen.presentation.adapter.ProductDetailsImagesRecyclerAdapter
 import com.fox.feature_details_screen.presentation.adapter.DetailsViewPagerAdapter
@@ -26,6 +33,8 @@ import com.fox.feature_details_screen.databinding.FragmentProductDetailsBinding
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
+import kotlin.math.abs
+import kotlin.math.roundToInt
 
 class ProductDetailsFragment : BaseFragment() {
     private lateinit var binding: FragmentProductDetailsBinding
@@ -64,7 +73,7 @@ class ProductDetailsFragment : BaseFragment() {
         productDetailsImagesRecyclerAdapter = ProductDetailsImagesRecyclerAdapter()
         detailsViewPagerAdapter = DetailsViewPagerAdapter(childFragmentManager, lifecycle)
         binding.apply {
-            imagesSpinner.adapter = productDetailsImagesRecyclerAdapter
+            setupViewPager()
             productDetailsView.detailsViewPager.adapter = detailsViewPagerAdapter
 
             TabLayoutMediator(productDetailsView.tabLayout, productDetailsView.detailsViewPager){ tab, position ->
@@ -110,6 +119,24 @@ class ProductDetailsFragment : BaseFragment() {
         }
         binding.btnCart.setOnClickListener {
             navigateTo(getString(DeepLinks.CART_SCREEN))
+        }
+    }
+
+    private fun setupViewPager() {
+        binding.imagesSpinner.apply {
+            adapter = productDetailsImagesRecyclerAdapter
+            offscreenPageLimit = 1
+            val nextItemVisiblePx = 26
+            val currentItemHorizontalMarginPx = 42
+            val pageTranslationX = nextItemVisiblePx + currentItemHorizontalMarginPx
+            val pageTransformer = ViewPager2.PageTransformer { page: View, position: Float ->
+                page.translationX = -pageTranslationX * position
+                page.scaleY = 1 - (0.25f * abs(position))
+                page.alpha = 0.25f + (1 - abs(position))
+            }
+            setPageTransformer(pageTransformer)
+            val itemDecoration = SpacingItemDecorator(42, SpacingType.Horizontal)
+            addItemDecoration(itemDecoration)
         }
     }
 }
