@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Details screen-->
+    <string name="mock_size_string">4.5 to 5.5 inches</string>
+    <string name="details">Product Details</string>
+    <string name="select_color_and_capacity">Select style and capacity</string>
+    <string name="pager_shop">Shop</string>
+    <string name="pager_details">Details</string>
+    <string name="pager_features">Features</string>
+</resources>

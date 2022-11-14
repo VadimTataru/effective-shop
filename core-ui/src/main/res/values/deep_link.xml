@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="main_screen_deep_link">"effectiveShop://main_screen"</string>
+    <string name="product_details_screen_deep_link">"effectiveShop://product_details_screen"</string>
+    <string name="cart_screen_deep_link">"effectiveShop://cart_screen"</string>
+</resources>

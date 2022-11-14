@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="60dp"
+    android:background="@color/dark_blue"
+    android:layout_height="40dp">
+
+
+    <ImageView
+        android:id="@+id/im_cart"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_cart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:visibility="invisible"
+        android:id="@+id/count_bg"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="-16dp"
+        android:src="@drawable/ellipse"
+        app:layout_constraintEnd_toEndOf="@+id/im_cart"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_count"
+        style="@style/WhiteSmallText"
+        android:layout_width="20dp"
+        android:layout_height="18dp"
+        android:fontFamily="@font/mark_pro_bold"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="@+id/count_bg"
+        app:layout_constraintEnd_toEndOf="@+id/count_bg"
+        app:layout_constraintStart_toStartOf="@+id/count_bg"
+        app:layout_constraintBottom_toBottomOf="@id/count_bg" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

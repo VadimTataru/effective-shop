@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_details_screen"
+    app:startDestination="@id/productDetailsFragment">
+
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.fox.feature_details_screen.presentation.fragments.ProductDetailsFragment"
+        android:label="fragment_product_details"
+        tools:layout="@layout/fragment_product_details">
+        <deepLink app:uri="@string/product_details_screen_deep_link"/>
+    </fragment>
+</navigation>

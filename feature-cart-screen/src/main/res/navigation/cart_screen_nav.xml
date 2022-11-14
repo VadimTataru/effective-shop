@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cart_screen_nav"
+    app:startDestination="@id/cartScreenFragment">
+
+    <fragment
+        android:id="@+id/cartScreenFragment"
+        android:name="com.fox.feature_cart_screen.presentation.fragments.CartScreenFragment"
+        android:label="fragment_cart_screen"
+        tools:layout="@layout/fragment_cart_screen">
+        <deepLink app:uri="@string/cart_screen_deep_link"/>
+    </fragment>
+</navigation>

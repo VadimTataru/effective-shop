@@ -1,23 +1,22 @@
 package com.fox.effectiveshop.di
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.fox.effectiveshop.di.annotations.ViewModelKey
-import com.fox.effectiveshop.presentation.viewmodels.MainScreenViewModel
-import com.fox.effectiveshop.presentation.viewmodels.factory.ViewModelFactory
+import com.fox.effectiveshop.presentation.viewmodel.ViewModelFactory
+import com.fox.feature_cart_screen.di.CartScreenModule
+import com.fox.feature_details_screen.di.DetailsScreenModule
+import com.fox.feature_main_screen.di.MainScreenModule
 import dagger.Binds
 import dagger.Module
-import dagger.multibindings.IntoMap
 
-@Module
+@Module(
+    includes = [
+        MainScreenModule::class,
+        DetailsScreenModule::class,
+        CartScreenModule::class
+    ]
+)
 abstract class ViewModelModule {
     //Factory
     @Binds
-    internal abstract fun bindFactory(factory: ViewModelFactory): ViewModelProvider.Factory
-
-    //ViewModels
-    @Binds
-    @IntoMap
-    @ViewModelKey(MainScreenViewModel::class)
-    internal abstract fun bindMainScreenViewModel(mainScreenViewModel: MainScreenViewModel): ViewModel
+    abstract fun bindFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 }
