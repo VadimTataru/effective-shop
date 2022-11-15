@@ -15,7 +15,6 @@ class BasketRecyclerAdapter(
     private var basketItems = mutableListOf<BasketItem>()
 
     inner class BasketViewHolder(private val binding: CartItemBinding): RecyclerView.ViewHolder(binding.root) {
-
         fun bind(basketItem: BasketItem) {
             binding.apply {
                 Glide.with(imgProduct)
